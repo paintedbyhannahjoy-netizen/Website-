@@ -1,5 +1,4 @@
 import type { Metadata } from "next";
-import SectionHeading from "@/components/SectionHeading";
 
 export const metadata: Metadata = {
   title: "Case Studies | Hannah Joy",
@@ -64,62 +63,83 @@ const caseStudies: CaseStudy[] = [
 export default function CaseStudiesPage() {
   return (
     <>
-      <section className="pt-32 pb-16 md:pt-40 md:pb-20 bg-gradient-to-b from-purple-50 to-white">
-        <div className="max-w-4xl mx-auto px-6 text-center">
-          <p className="text-purple-500 text-sm font-medium uppercase tracking-widest mb-4">
-            Case Studies
-          </p>
-          <h1 className="font-[family-name:var(--font-display)] text-4xl md:text-5xl font-bold text-purple-950 leading-tight">
-            Results That Speak
+      {/* Hero */}
+      <section className="relative pt-36 pb-20 md:pt-44 md:pb-24 overflow-hidden bg-gradient-to-br from-purple-50 via-white to-purple-100/30">
+        <div className="absolute top-[25%] right-[15%] w-64 h-64 rounded-full bg-purple-200/25 blur-3xl animate-float" />
+        <div className="absolute bottom-[15%] left-[10%] w-48 h-48 rounded-full bg-purple-300/20 blur-2xl animate-pulse-glow" />
+
+        <div className="relative max-w-4xl mx-auto px-6 text-center">
+          <div className="inline-flex items-center gap-2 px-5 py-2 rounded-full bg-purple-950/5 border border-purple-200/50 mb-8">
+            <span className="w-2 h-2 rounded-full bg-purple-400" />
+            <span className="text-purple-600 text-sm font-medium tracking-wide">
+              Case Studies
+            </span>
+          </div>
+          <h1 className="font-[family-name:var(--font-display)] text-5xl md:text-7xl font-bold leading-[0.95] mb-6">
+            <span className="gradient-text">Results That</span>
+            <br />
+            <span className="brush-underline text-purple-950">Speak</span>
           </h1>
-          <p className="mt-4 text-purple-600 text-lg max-w-2xl mx-auto">
+          <p className="text-purple-600 text-lg max-w-2xl mx-auto">
             A look at the process, deliverables, and outcomes from select brand
             collaborations.
           </p>
         </div>
       </section>
 
-      <section className="py-16 bg-white">
-        <div className="max-w-4xl mx-auto px-6 space-y-12">
+      {/* Case Studies */}
+      <section className="py-20 bg-white relative">
+        <div className="absolute top-0 w-full h-px bg-gradient-to-r from-transparent via-purple-200 to-transparent" />
+        <div className="max-w-4xl mx-auto px-6 space-y-8">
           {caseStudies.map((study, index) => (
             <article
               key={index}
-              className="p-8 md:p-10 bg-white rounded-2xl border border-purple-100 shadow-sm hover:shadow-md transition-shadow duration-200"
+              className="group relative glass-card rounded-3xl p-8 md:p-12 hover-lift overflow-hidden"
             >
-              <div className="flex items-center gap-3 mb-6">
-                <span className="inline-block w-10 h-10 rounded-full bg-purple-100 text-purple-700 text-sm font-bold flex items-center justify-center">
-                  {String(index + 1).padStart(2, "0")}
+              {/* Decorative accent */}
+              <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-purple-300 via-purple-500 to-purple-300 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+
+              {/* Header */}
+              <div className="flex items-center gap-4 mb-8">
+                <span className="flex items-center justify-center w-14 h-14 rounded-2xl bg-purple-50 border border-purple-200/50">
+                  <span className="text-xl font-bold gradient-text font-[family-name:var(--font-display)]">
+                    {String(index + 1).padStart(2, "0")}
+                  </span>
                 </span>
-                <h2 className="font-[family-name:var(--font-display)] text-2xl font-bold text-purple-950">
+                <h2 className="font-[family-name:var(--font-display)] text-2xl md:text-3xl font-bold text-purple-950">
                   {study.brandName}
                 </h2>
               </div>
 
-              <div className="space-y-6">
+              <div className="space-y-8">
                 <div>
-                  <h3 className="text-sm font-semibold text-purple-500 uppercase tracking-wider mb-2">
+                  <h3 className="text-xs font-semibold text-purple-400 uppercase tracking-[0.15em] mb-3">
                     Campaign Goal
                   </h3>
-                  <p className="text-purple-800">{study.campaignGoal}</p>
+                  <p className="text-purple-800 leading-relaxed">
+                    {study.campaignGoal}
+                  </p>
                 </div>
 
                 <div>
-                  <h3 className="text-sm font-semibold text-purple-500 uppercase tracking-wider mb-2">
+                  <h3 className="text-xs font-semibold text-purple-400 uppercase tracking-[0.15em] mb-3">
                     Content Delivered
                   </h3>
-                  <p className="text-purple-800">{study.contentDelivered}</p>
+                  <p className="text-purple-800 leading-relaxed">
+                    {study.contentDelivered}
+                  </p>
                 </div>
 
-                <div className="flex flex-wrap gap-6">
+                <div className="flex flex-wrap gap-8">
                   <div>
-                    <h3 className="text-sm font-semibold text-purple-500 uppercase tracking-wider mb-2">
+                    <h3 className="text-xs font-semibold text-purple-400 uppercase tracking-[0.15em] mb-3">
                       Platforms
                     </h3>
                     <div className="flex flex-wrap gap-2">
                       {study.platformsUsed.map((platform) => (
                         <span
                           key={platform}
-                          className="px-3 py-1 bg-purple-50 text-purple-700 text-sm rounded-full"
+                          className="px-4 py-1.5 bg-purple-50 text-purple-700 text-sm rounded-full border border-purple-200/50 font-medium"
                         >
                           {platform}
                         </span>
@@ -128,7 +148,7 @@ export default function CaseStudiesPage() {
                   </div>
 
                   <div>
-                    <h3 className="text-sm font-semibold text-purple-500 uppercase tracking-wider mb-2">
+                    <h3 className="text-xs font-semibold text-purple-400 uppercase tracking-[0.15em] mb-3">
                       Usage Rights
                     </h3>
                     <p className="text-purple-800 text-sm">
@@ -138,17 +158,17 @@ export default function CaseStudiesPage() {
                 </div>
 
                 <div>
-                  <h3 className="text-sm font-semibold text-purple-500 uppercase tracking-wider mb-2">
+                  <h3 className="text-xs font-semibold text-purple-400 uppercase tracking-[0.15em] mb-3">
                     Results & Highlights
                   </h3>
-                  <ul className="space-y-2">
+                  <ul className="space-y-3">
                     {study.results.map((result, i) => (
                       <li
                         key={i}
-                        className="flex items-start gap-2 text-purple-800"
+                        className="flex items-start gap-3 text-purple-800"
                       >
-                        <span className="mt-1.5 w-1.5 h-1.5 rounded-full bg-purple-400 shrink-0" />
-                        {result}
+                        <span className="mt-2 w-2 h-2 rounded-full bg-purple-400 shrink-0" />
+                        <span className="leading-relaxed">{result}</span>
                       </li>
                     ))}
                   </ul>
