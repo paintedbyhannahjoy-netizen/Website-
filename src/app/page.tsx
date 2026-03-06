@@ -1,202 +1,199 @@
 import Link from "next/link";
-import SectionHeading from "@/components/SectionHeading";
-import TikTokEmbed from "@/components/TikTokEmbed";
-
-const featuredVideos = [
-  { videoId: "7493702811498684702" },
-  { videoId: "7490084959738924318" },
-  { videoId: "7441506285158518046" },
-];
-
-const trustedBrands = [
-  "NYX Professional Makeup",
-  "e.l.f. Cosmetics",
-  "ColourPop",
-  "Glossier",
-  "Rare Beauty",
-  "Morphe",
-  "Fenty Beauty",
-  "MAC Cosmetics",
-];
 
 export default function Home() {
   return (
     <>
-      {/* Hero */}
-      <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-gradient-to-br from-purple-50 via-white to-purple-100/50">
-        {/* Artistic background elements */}
-        <div className="absolute inset-0 overflow-hidden">
-          <div className="absolute top-[15%] left-[5%] w-80 h-80 rounded-full bg-purple-200/30 blur-3xl animate-float" />
-          <div className="absolute bottom-[10%] right-[8%] w-[28rem] h-[28rem] rounded-full bg-purple-300/20 blur-3xl animate-float animation-delay-2000" />
-          <div className="absolute top-[40%] right-[20%] w-48 h-48 rounded-full bg-purple-400/15 blur-2xl animate-pulse-glow" />
+      {/* ── Hero ── */}
+      <section className="relative min-h-screen flex flex-col justify-between pt-32 pb-16 px-6 overflow-hidden bg-cream-200">
+        {/* Faint pigment smudge — top left */}
+        <div
+          className="absolute -top-24 -left-24 w-96 h-96 rounded-full opacity-20 pointer-events-none"
+          style={{ background: "radial-gradient(circle, #EDD5CA 0%, transparent 70%)" }}
+        />
+        {/* Faint pigment smudge — bottom right */}
+        <div
+          className="absolute bottom-0 right-0 w-80 h-80 rounded-full opacity-15 pointer-events-none"
+          style={{ background: "radial-gradient(circle, #D4DFCC 0%, transparent 70%)" }}
+        />
 
-          {/* Abstract brush strokes */}
-          <div className="absolute top-[20%] left-[15%] w-32 h-[2px] bg-gradient-to-r from-transparent via-purple-300 to-transparent rotate-[30deg] opacity-40" />
-          <div className="absolute bottom-[30%] right-[12%] w-48 h-[2px] bg-gradient-to-r from-transparent via-purple-400 to-transparent -rotate-[20deg] opacity-30" />
-          <div className="absolute top-[60%] left-[8%] w-24 h-[2px] bg-gradient-to-r from-transparent via-purple-300 to-transparent rotate-[60deg] opacity-30" />
-
-          {/* Scattered dots */}
-          <div className="absolute top-[25%] right-[25%] w-3 h-3 rounded-full bg-purple-400/30" />
-          <div className="absolute top-[70%] left-[20%] w-2 h-2 rounded-full bg-purple-500/25" />
-          <div className="absolute bottom-[25%] right-[35%] w-4 h-4 rounded-full bg-purple-300/20" />
+        {/* Handle — top right */}
+        <div className="flex justify-end max-w-6xl mx-auto w-full">
+          <span className="text-xs text-ink-muted tracking-widest uppercase animate-fade-in">
+            @paintedbyhannahjoy
+          </span>
         </div>
 
-        <div className="relative max-w-5xl mx-auto px-6 pt-32 pb-20 text-center">
-          {/* Tagline pill */}
-          <div className="animate-fade-up inline-flex items-center gap-2 px-5 py-2 rounded-full bg-purple-950/5 border border-purple-200/50 mb-8">
-            <span className="w-2 h-2 rounded-full bg-purple-500 animate-pulse-glow" />
-            <span className="text-purple-600 text-sm font-medium tracking-wide">
-              UGC Content Creator &amp; Creative Makeup Artist
-            </span>
+        {/* Main wordmark */}
+        <div className="flex-1 flex flex-col justify-center max-w-6xl mx-auto w-full">
+          <div className="animate-fade-up">
+            <h1
+              className="font-display italic text-ink leading-none tracking-tight"
+              style={{ fontSize: "clamp(5rem, 18vw, 16rem)" }}
+            >
+              painted.
+            </h1>
           </div>
 
-          {/* Main headline */}
-          <h1 className="animate-fade-up animation-delay-200 font-[family-name:var(--font-display)] text-5xl md:text-7xl lg:text-8xl font-bold leading-[0.95] mb-8">
-            <span className="gradient-text">UGC that converts</span>
-            <br />
-            <span className="text-purple-950">through </span>
-            <span className="brush-underline text-purple-950">creativity</span>
-          </h1>
+          <div className="mt-8 max-w-lg animate-fade-up animation-delay-200">
+            <p className="text-base md:text-lg text-ink-soft leading-relaxed">
+              Self-taught makeup artist. 70M+ views. Daily poster.
+            </p>
+          </div>
 
-          <p className="animate-fade-up animation-delay-400 text-lg md:text-xl text-purple-600 mb-12 max-w-2xl mx-auto leading-relaxed">
-            I create high-performing short-form content for beauty and lifestyle
-            brands — concept-driven storytelling that stops the scroll.
-          </p>
-
-          {/* CTA buttons */}
-          <div className="animate-fade-up animation-delay-600 flex flex-col sm:flex-row items-center justify-center gap-4">
-            <Link
-              href="/portfolio"
-              className="group px-8 py-4 bg-purple-950 text-white rounded-full text-sm font-medium hover:bg-purple-800 transition-all duration-300 hover:shadow-xl hover:shadow-purple-950/20 flex items-center gap-2"
-            >
-              View Portfolio
-              <svg
-                className="w-4 h-4 group-hover:translate-x-1 transition-transform"
-                fill="none"
-                stroke="currentColor"
-                viewBox="0 0 24 24"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth={2}
-                  d="M17 8l4 4m0 0l-4 4m4-4H3"
-                />
-              </svg>
+          {/* Two paths */}
+          <div className="mt-12 flex flex-wrap items-center gap-4 animate-fade-up animation-delay-400">
+            <Link href="/work" className="btn-primary">
+              Watch My Work
+              <span className="ml-2 opacity-60">↗</span>
             </Link>
-            <Link
-              href="/contact"
-              className="px-8 py-4 border border-purple-300 text-purple-700 rounded-full text-sm font-medium hover:bg-purple-50 hover:border-purple-400 transition-all duration-300"
-            >
+            <Link href="/work-with-me" className="btn-outline">
               Work With Me
             </Link>
           </div>
+        </div>
 
-          {/* Stats */}
-          <div className="animate-fade-up animation-delay-600 mt-20 flex flex-wrap justify-center gap-6 md:gap-12">
+        {/* Stats strip — bottom */}
+        <div className="max-w-6xl mx-auto w-full animate-fade-up animation-delay-600">
+          <div className="rule-ink mb-8" />
+          <div className="flex flex-wrap gap-10 md:gap-16">
             {[
-              { value: "50K+", label: "TikTok", color: "bg-purple-500" },
-              { value: "24K+", label: "Instagram", color: "bg-purple-400" },
-              { value: "4K+", label: "YouTube", color: "bg-purple-300" },
-            ].map((stat) => (
-              <div
-                key={stat.label}
-                className="glass-card rounded-2xl px-8 py-5 hover-lift"
-              >
-                <p className="text-3xl md:text-4xl font-bold gradient-text">
-                  {stat.value}
-                </p>
-                <div className="flex items-center gap-2 mt-1">
-                  <span className={`w-2 h-2 rounded-full ${stat.color}`} />
-                  <p className="text-sm text-purple-500">{stat.label}</p>
-                </div>
+              { num: "70M+", label: "Views" },
+              { num: "26K", label: "Instagram" },
+              { num: "50K", label: "TikTok" },
+              { num: "Daily", label: "Posting" },
+            ].map(({ num, label }) => (
+              <div key={label}>
+                <p className="font-display text-3xl md:text-4xl text-ink leading-none">{num}</p>
+                <p className="text-xs text-ink-muted tracking-widest uppercase mt-1">{label}</p>
               </div>
             ))}
           </div>
         </div>
-
-        {/* Bottom fade */}
-        <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-white to-transparent" />
       </section>
 
-      {/* Featured Videos */}
-      <section className="py-24 bg-white relative">
-        <div className="absolute top-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-purple-200 to-transparent" />
+      {/* ── What I make ── */}
+      <section className="bg-cream-100 section">
         <div className="max-w-6xl mx-auto px-6">
-          <SectionHeading
-            title="Featured Work"
-            subtitle="A selection of concept-driven content that showcases creative range and storytelling"
-          />
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10">
-            {featuredVideos.map((video) => (
-              <TikTokEmbed key={video.videoId} videoId={video.videoId} />
-            ))}
-          </div>
-        </div>
-      </section>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-16 md:gap-24 items-center">
+            <div>
+              <p className="text-xs text-ink-muted tracking-widest uppercase mb-4">The Work</p>
+              <h2 className="font-display text-4xl md:text-5xl text-ink leading-snug mb-6">
+                Makeup as a medium,<br />
+                <em>not a service.</em>
+              </h2>
+              <p className="text-ink-soft leading-relaxed mb-8">
+                Threadwork. Ribbon. Pigment. Process. What I post isn&apos;t
+                a tutorial — it&apos;s a document of something I&apos;m
+                figuring out. That&apos;s what keeps people watching.
+              </p>
+              <Link href="/work" className="text-sm text-ink border-b border-ink/30 pb-px hover:border-ink/70 transition-colors">
+                Browse the portfolio →
+              </Link>
+            </div>
 
-      {/* Trust Indicators */}
-      <section className="py-24 relative overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-br from-purple-50 via-purple-100/50 to-purple-50" />
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] rounded-full bg-purple-200/20 blur-3xl" />
-
-        <div className="relative max-w-6xl mx-auto px-6">
-          <SectionHeading
-            title="Trusted By"
-            subtitle="Brands I've created paid UGC content for"
-          />
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-            {trustedBrands.map((brand) => (
-              <div
-                key={brand}
-                className="group glass-card rounded-2xl p-8 hover-lift cursor-default"
-              >
-                <div className="flex items-center gap-3">
-                  <div className="w-3 h-3 rounded-full bg-purple-400 opacity-60 group-hover:opacity-100 transition-opacity" />
-                  <span className="text-sm font-medium text-purple-800 group-hover:text-purple-950 transition-colors">
-                    {brand}
+            {/* Category cards */}
+            <div className="grid grid-cols-1 gap-3">
+              {[
+                {
+                  title: "Threadwork",
+                  desc: "Stitched and ribbon-based techniques — the series that started it all.",
+                  bg: "bg-mauve-light",
+                },
+                {
+                  title: "The Kiss",
+                  desc: "Lipstick print techniques, abstract and precise.",
+                  bg: "bg-sage-light",
+                },
+                {
+                  title: "Transformations",
+                  desc: "Character work, cosplay, full editorial looks.",
+                  bg: "bg-gold-light",
+                },
+              ].map(({ title, desc, bg }) => (
+                <Link
+                  key={title}
+                  href="/work"
+                  className={`${bg} p-6 flex items-center justify-between group hover-lift`}
+                >
+                  <div>
+                    <p className="font-display text-xl text-ink mb-1">{title}</p>
+                    <p className="text-sm text-ink-muted">{desc}</p>
+                  </div>
+                  <span className="text-ink-muted group-hover:text-ink transition-colors ml-4 flex-shrink-0 text-lg">
+                    →
                   </span>
-                </div>
-              </div>
-            ))}
+                </Link>
+              ))}
+            </div>
           </div>
         </div>
       </section>
 
-      {/* CTA */}
-      <section className="relative py-32 bg-purple-950 overflow-hidden">
-        <div className="absolute top-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-purple-500 to-transparent" />
-        <div className="absolute top-[20%] left-[10%] w-64 h-64 rounded-full bg-purple-800/30 blur-3xl" />
-        <div className="absolute bottom-[20%] right-[10%] w-48 h-48 rounded-full bg-purple-700/20 blur-3xl" />
+      {/* ── About strip ── */}
+      <section className="bg-cream-200 section border-t border-cream-400/40">
+        <div className="max-w-6xl mx-auto px-6">
+          <div className="grid grid-cols-1 md:grid-cols-12 gap-8 items-end">
+            <div className="md:col-span-7">
+              <p className="text-xs text-ink-muted tracking-widest uppercase mb-6">Who I am</p>
+              <blockquote className="font-display text-3xl md:text-4xl text-ink italic leading-snug">
+                &ldquo;I&apos;ve loved makeup since I was three.
+                Everything since then has been an experiment.&rdquo;
+              </blockquote>
+            </div>
+            <div className="md:col-span-4 md:col-start-9 md:text-right">
+              <p className="text-ink-soft text-sm leading-relaxed mb-6">
+                Started from zero in March 2025. Hit 50K by September.
+                Now at 70M+ views and still going daily.
+              </p>
+              <Link href="/about" className="btn-outline inline-flex">
+                Read the story
+              </Link>
+            </div>
+          </div>
+        </div>
+      </section>
 
-        <div className="relative max-w-3xl mx-auto px-6 text-center">
-          <h2 className="font-[family-name:var(--font-display)] text-4xl md:text-6xl font-bold text-white mb-6 leading-tight">
-            Ready to create content that{" "}
-            <span className="text-purple-300">converts</span>?
-          </h2>
-          <p className="text-purple-300 text-lg mb-10 max-w-xl mx-auto">
-            I work with brands on paid UGC collaborations. Let&apos;s discuss
-            your next campaign.
+      {/* ── Brands strip ── */}
+      <section className="bg-ink section">
+        <div className="max-w-6xl mx-auto px-6">
+          <p className="text-xs text-cream-500 tracking-widest uppercase mb-10 text-center">
+            Brands I&apos;ve worked with
           </p>
-          <Link
-            href="/contact"
-            className="group inline-flex items-center gap-3 px-10 py-4 bg-white text-purple-950 rounded-full text-sm font-medium hover:bg-purple-100 transition-all duration-300 hover:shadow-xl hover:shadow-white/10"
-          >
-            Get In Touch
-            <svg
-              className="w-4 h-4 group-hover:translate-x-1 transition-transform"
-              fill="none"
-              stroke="currentColor"
-              viewBox="0 0 24 24"
+
+          {/* Marquee */}
+          <div className="overflow-hidden relative">
+            {/* Fade edges */}
+            <div
+              className="absolute left-0 top-0 bottom-0 w-16 z-10 pointer-events-none"
+              style={{ background: "linear-gradient(90deg, #1C1714, transparent)" }}
+            />
+            <div
+              className="absolute right-0 top-0 bottom-0 w-16 z-10 pointer-events-none"
+              style={{ background: "linear-gradient(-90deg, #1C1714, transparent)" }}
+            />
+
+            <div className="flex gap-8 animate-marquee">
+              {[
+                "Urban Decay", "Farmacy", "Byredo", "Doja Cat",
+                "Mads", "Buckley", "Nina Simone",
+                "Urban Decay", "Farmacy", "Byredo", "Doja Cat",
+                "Mads", "Buckley", "Nina Simone",
+              ].map((brand, i) => (
+                <span key={i} className="brand-pill border-cream-600/40 text-cream-400 flex-shrink-0">
+                  {brand}
+                </span>
+              ))}
+            </div>
+          </div>
+
+          <div className="mt-12 text-center">
+            <Link
+              href="/work-with-me"
+              className="text-sm text-cream-400 border-b border-cream-600 pb-px hover:text-cream-100 hover:border-cream-400 transition-colors"
             >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth={2}
-                d="M17 8l4 4m0 0l-4 4m4-4H3"
-              />
-            </svg>
-          </Link>
+              See collaboration work →
+            </Link>
+          </div>
         </div>
       </section>
     </>

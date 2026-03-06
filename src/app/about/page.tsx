@@ -1,207 +1,199 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import SectionHeading from "@/components/SectionHeading";
 
 export const metadata: Metadata = {
   title: "About | Hannah Joy",
   description:
-    "Learn about Hannah Joy — UGC content creator and creative makeup artist specializing in concept-driven storytelling for beauty and lifestyle brands.",
+    "Self-taught makeup artist, content creator, 70M+ views. Started in March 2025. Still going.",
 };
-
-const strengths = [
-  {
-    title: "Concept-Driven UGC",
-    description:
-      "Every piece of content starts with a concept. I develop ideas rooted in brand identity and audience psychology, not trends alone.",
-    icon: "01",
-  },
-  {
-    title: "Strong Visual Identity",
-    description:
-      "With a background in creative makeup artistry, I bring a trained eye for color, composition, and visual storytelling to every project.",
-    icon: "02",
-  },
-  {
-    title: "Audience-Aware Content",
-    description:
-      "I create content with the end viewer in mind — understanding what stops the scroll and drives action for your target audience.",
-    icon: "03",
-  },
-  {
-    title: "Fast Brand Adaptation",
-    description:
-      "I work efficiently within brand guidelines, adapting tone, style, and messaging to match your existing visual and verbal identity.",
-    icon: "04",
-  },
-];
 
 export default function AboutPage() {
   return (
     <>
-      {/* Hero */}
-      <section className="relative pt-36 pb-20 md:pt-44 md:pb-28 overflow-hidden bg-gradient-to-br from-purple-50 via-white to-purple-100/30">
-        <div className="absolute top-[20%] right-[10%] w-72 h-72 rounded-full bg-purple-200/25 blur-3xl animate-float" />
-        <div className="absolute bottom-[10%] left-[5%] w-48 h-48 rounded-full bg-purple-300/20 blur-2xl animate-pulse-glow" />
-
-        <div className="relative max-w-4xl mx-auto px-6 text-center">
-          <div className="inline-flex items-center gap-2 px-5 py-2 rounded-full bg-purple-950/5 border border-purple-200/50 mb-8">
-            <span className="w-2 h-2 rounded-full bg-purple-400" />
-            <span className="text-purple-600 text-sm font-medium tracking-wide">
-              About Me
-            </span>
-          </div>
-          <h1 className="font-[family-name:var(--font-display)] text-5xl md:text-7xl font-bold leading-[0.95]">
-            <span className="gradient-text">Creator, artist,</span>
-            <br />
-            <span className="brush-underline text-purple-950">storyteller.</span>
+      {/* ── Header ── */}
+      <section className="pt-40 pb-20 px-6 bg-cream-200 relative overflow-hidden">
+        <div
+          className="absolute top-0 right-0 w-64 h-64 rounded-full opacity-20 pointer-events-none"
+          style={{ background: "radial-gradient(circle, #EDD5CA 0%, transparent 70%)" }}
+        />
+        <div className="max-w-4xl mx-auto">
+          <p className="text-xs text-ink-muted tracking-widest uppercase mb-6 animate-fade-up">About</p>
+          <h1 className="font-display italic text-5xl md:text-7xl text-ink leading-tight animate-fade-up animation-delay-100">
+            I&apos;ve been doing this<br />since I was three.
           </h1>
         </div>
       </section>
 
-      {/* Bio */}
-      <section className="py-20 bg-white relative">
-        <div className="absolute top-0 w-full h-px bg-gradient-to-r from-transparent via-purple-200 to-transparent" />
-        <div className="max-w-3xl mx-auto px-6">
-          <div className="space-y-6 text-purple-800 leading-relaxed text-lg">
-            <p className="text-xl text-purple-950 font-medium">
-              I&apos;m Hannah Joy — a UGC content creator and creative makeup
-              artist building concept-driven short-form content for
-              beauty and lifestyle brands.
-            </p>
-            <p>
-              My background in creative and artistic makeup gives me a unique
-              perspective on visual storytelling. I don&apos;t just film content
-              — I develop concepts that connect brand identity with audience
-              attention, creating pieces that are both visually compelling and
-              strategically effective.
-            </p>
-            <p>
-              I specialize in short-form video for TikTok, Instagram Reels, and
-              YouTube Shorts. My approach is intuitive but intentional: every
-              frame, transition, and creative choice serves the brand&apos;s
-              goals.
-            </p>
-            <p>
-              I work exclusively on paid collaborations and usage-based
-              partnerships. If you&apos;re looking for a creator who brings both
-              artistry and professionalism to the table, let&apos;s talk.
-            </p>
-          </div>
-        </div>
-      </section>
-
-      {/* Strengths */}
-      <section className="py-24 relative overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-br from-purple-50 via-purple-100/40 to-purple-50" />
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] rounded-full bg-purple-200/20 blur-3xl" />
-
-        <div className="relative max-w-6xl mx-auto px-6">
-          <SectionHeading
-            title="What I Bring"
-            subtitle="Core strengths that set my work apart"
-          />
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-            {strengths.map((item) => (
-              <div
-                key={item.title}
-                className="group glass-card rounded-2xl p-8 hover-lift"
-              >
-                <div className="flex items-start gap-4">
-                  <span className="text-3xl font-bold gradient-text opacity-30 group-hover:opacity-60 transition-opacity font-[family-name:var(--font-display)]">
-                    {item.icon}
-                  </span>
+      {/* ── Bio ── */}
+      <section className="bg-cream-100 section">
+        <div className="max-w-4xl mx-auto px-6">
+          <div className="grid grid-cols-1 md:grid-cols-12 gap-12 md:gap-16">
+            {/* Pull quote */}
+            <div className="md:col-span-4">
+              <div className="sticky top-28">
+                <div className="w-8 h-px bg-mauve mb-6" />
+                <p className="font-display italic text-2xl text-ink leading-snug">
+                  &ldquo;Self-taught.
+                  Still figuring it out.
+                  Still growing.&rdquo;
+                </p>
+                <div className="mt-8 flex gap-4">
                   <div>
-                    <h3 className="text-lg font-semibold text-purple-950 mb-2">
-                      {item.title}
-                    </h3>
-                    <p className="text-purple-600 leading-relaxed">
-                      {item.description}
-                    </p>
+                    <p className="font-display text-3xl text-ink leading-none">70M+</p>
+                    <p className="text-xs text-ink-muted tracking-widest uppercase mt-1">Views</p>
+                  </div>
+                  <div className="w-px bg-cream-400 mx-2" />
+                  <div>
+                    <p className="font-display text-3xl text-ink leading-none">26K</p>
+                    <p className="text-xs text-ink-muted tracking-widest uppercase mt-1">Instagram</p>
                   </div>
                 </div>
               </div>
-            ))}
+            </div>
+
+            {/* Bio text */}
+            <div className="md:col-span-7 md:col-start-6">
+              <div className="space-y-5 text-ink-soft leading-relaxed text-base">
+                <p className="text-lg text-ink font-display italic">
+                  I&apos;ve loved makeup since I was three years old.
+                </p>
+                <p>
+                  Self-taught — no cosmetology school, no formal training. Just years of
+                  experimenting, watching, and practicing. Makeup for me has always been
+                  less about looking good and more about seeing what&apos;s possible.
+                  What happens when you stitch ribbon into an eyelid? What does a lipstick
+                  print look like blown up and abstracted?
+                </p>
+                <p>
+                  In March 2025, I started a brand new TikTok account. Zero followers.
+                  I just started posting — daily, because I wanted to see what would happen
+                  if I actually committed. By September I was at 50K. The threadwork videos
+                  caught people off guard. That was the point.
+                </p>
+                <p>
+                  Now at 26K on Instagram, 70 million views across platforms, and I still
+                  post every day. I&apos;ve worked with brands I genuinely admire — Urban
+                  Decay, Farmacy, Byredo (PR seeding), Doja Cat&apos;s team, and others.
+                  I care about the work. That hasn&apos;t changed.
+                </p>
+                <p>
+                  I&apos;m not trying to be an influencer. I&apos;m trying to make things
+                  that are worth making.
+                </p>
+              </div>
+            </div>
           </div>
         </div>
       </section>
 
-      {/* Work Style */}
-      <section className="py-24 bg-white">
+      {/* ── Timeline ── */}
+      <section className="bg-cream-200 section border-t border-cream-400/40">
         <div className="max-w-4xl mx-auto px-6">
-          <SectionHeading
-            title="How I Work"
-            subtitle="What you can expect from a collaboration"
-          />
-          <div className="grid grid-cols-1 sm:grid-cols-3 gap-8">
+          <p className="text-xs text-ink-muted tracking-widest uppercase mb-14">The Timeline</p>
+
+          <div className="relative">
+            {/* Vertical line */}
+            <div className="absolute left-0 top-2 bottom-2 w-px bg-cream-400" />
+
+            <div className="space-y-12 pl-10">
+              {[
+                {
+                  date: "March 2025",
+                  headline: "Started over.",
+                  body: "Brand new TikTok. Zero followers. Zero expectations. Just started posting and kept going.",
+                },
+                {
+                  date: "Summer 2025",
+                  headline: "The threadwork videos took off.",
+                  body: "The stitched-ribbon makeup series caught people's attention in a way I didn't expect. Comments were something like: 'I've never seen this before.' That felt right.",
+                },
+                {
+                  date: "September 2025",
+                  headline: "50K on TikTok.",
+                  body: "Six months of daily posting. It's not a hack. It's just showing up.",
+                },
+                {
+                  date: "Late 2025",
+                  headline: "Brand campaigns start.",
+                  body: "Urban Decay, Farmacy, Doja Cat's team. Byredo sent product. I was honest about each one — I don't do mystery.",
+                },
+                {
+                  date: "Today",
+                  headline: "70M+ views. Still posting daily.",
+                  body: "26K Instagram, 50K TikTok, more incoming. Still self-taught. Still figuring things out. Still having fun with it.",
+                  current: true,
+                },
+              ].map(({ date, headline, body, current }) => (
+                <div key={date} className="relative">
+                  {/* Dot */}
+                  <div
+                    className={`absolute -left-10 top-1.5 w-2 h-2 rounded-full border ${
+                      current
+                        ? "bg-mauve border-mauve"
+                        : "bg-cream-200 border-cream-500"
+                    }`}
+                  />
+
+                  <p className="text-xs text-ink-muted tracking-widest uppercase mb-2">{date}</p>
+                  <h3 className="font-display text-xl md:text-2xl text-ink mb-2">{headline}</h3>
+                  <p className="text-sm text-ink-soft leading-relaxed max-w-lg">{body}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* ── Process ── */}
+      <section className="bg-cream-100 section border-t border-cream-400/40">
+        <div className="max-w-6xl mx-auto px-6">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {[
               {
-                title: "Collaborative",
-                description:
-                  "I work with your team to understand goals, audience, and brand voice before creating anything.",
-                accent: "bg-purple-300",
+                num: "01",
+                title: "Process over polish",
+                body: "The most-watched videos are the ones where something is happening — pigment being mixed, ribbon being placed. I film the work, not the result.",
               },
               {
-                title: "Clear Communication",
-                description:
-                  "You'll always know where things stand. I keep communication straightforward and responsive.",
-                accent: "bg-purple-400",
+                num: "02",
+                title: "Daily means daily",
+                body: "Not 'posting often.' Every day. That consistency is how I know what works and what doesn't. It's also how the algorithm gets to know you.",
               },
               {
-                title: "Deadline-Focused",
-                description:
-                  "I deliver on time, every time. Reliable turnaround is non-negotiable in my workflow.",
-                accent: "bg-purple-500",
+                num: "03",
+                title: "Honest about the collabs",
+                body: "If something was gifted, I say so. If it was a campaign, I say so. Byredo sent product — that's PR seeding, and I'll call it that. Trust is the whole thing.",
               },
-            ].map((item) => (
-              <div key={item.title} className="text-center group">
-                <div
-                  className={`w-12 h-1 rounded-full ${item.accent} mx-auto mb-6 group-hover:w-20 transition-all duration-500`}
-                />
-                <h3 className="text-lg font-semibold text-purple-950 mb-3">
-                  {item.title}
-                </h3>
-                <p className="text-sm text-purple-600 leading-relaxed">
-                  {item.description}
-                </p>
+            ].map(({ num, title, body }) => (
+              <div key={num} className="border-t border-cream-400 pt-6">
+                <p className="font-display text-4xl text-cream-400 leading-none mb-4">{num}</p>
+                <h3 className="font-display text-lg text-ink mb-3">{title}</h3>
+                <p className="text-sm text-ink-soft leading-relaxed">{body}</p>
               </div>
             ))}
           </div>
         </div>
       </section>
 
-      {/* CTA */}
-      <section className="relative py-28 bg-purple-950 text-white overflow-hidden">
-        <div className="absolute top-0 w-full h-px bg-gradient-to-r from-transparent via-purple-500 to-transparent" />
-        <div className="absolute top-[20%] left-[10%] w-64 h-64 rounded-full bg-purple-800/30 blur-3xl" />
-        <div className="absolute bottom-[20%] right-[10%] w-48 h-48 rounded-full bg-purple-700/20 blur-3xl" />
-
-        <div className="relative max-w-3xl mx-auto px-6 text-center">
-          <h2 className="font-[family-name:var(--font-display)] text-4xl md:text-5xl font-bold mb-6">
-            Interested in working{" "}
-            <span className="text-purple-300">together</span>?
-          </h2>
-          <p className="text-purple-300 mb-10 text-lg">
-            I&apos;d love to hear about your next project.
-          </p>
-          <Link
-            href="/contact"
-            className="group inline-flex items-center gap-3 px-10 py-4 bg-white text-purple-950 rounded-full text-sm font-medium hover:bg-purple-100 transition-all duration-300"
-          >
-            Get In Touch
-            <svg
-              className="w-4 h-4 group-hover:translate-x-1 transition-transform"
-              fill="none"
-              stroke="currentColor"
-              viewBox="0 0 24 24"
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth={2}
-                d="M17 8l4 4m0 0l-4 4m4-4H3"
-              />
-            </svg>
-          </Link>
+      {/* ── CTA ── */}
+      <section className="bg-ink section">
+        <div className="max-w-4xl mx-auto px-6 flex flex-col md:flex-row items-start md:items-center justify-between gap-8">
+          <div>
+            <h2 className="font-display italic text-3xl md:text-4xl text-cream-100 mb-2">
+              Want to make something?
+            </h2>
+            <p className="text-sm text-cream-500">
+              Brand campaigns, creator collabs, or just a conversation.
+            </p>
+          </div>
+          <div className="flex flex-wrap gap-4">
+            <Link href="/work-with-me" className="btn-light">
+              Work With Me
+            </Link>
+            <Link href="/work" className="text-sm text-cream-400 border-b border-cream-600 pb-px hover:text-cream-100 hover:border-cream-400 transition-colors self-end mb-1">
+              See my work →
+            </Link>
+          </div>
         </div>
       </section>
     </>

@@ -7,10 +7,9 @@ import { usePathname } from "next/navigation";
 const navLinks = [
   { href: "/", label: "Home" },
   { href: "/about", label: "About" },
-  { href: "/portfolio", label: "Portfolio" },
-  { href: "/case-studies", label: "Case Studies" },
-  { href: "/brands", label: "Brands" },
-  { href: "/contact", label: "Contact" },
+  { href: "/work", label: "Work" },
+  { href: "/work-with-me", label: "Work With Me" },
+  { href: "/collaborate", label: "Collaborate" },
 ];
 
 export default function Navbar() {
@@ -20,65 +19,51 @@ export default function Navbar() {
   const pathname = usePathname();
 
   useEffect(() => {
-    const handleScroll = () => setScrolled(window.scrollY > 20);
+    const handleScroll = () => setScrolled(window.scrollY > 40);
     window.addEventListener("scroll", handleScroll, { passive: true });
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
   useEffect(() => {
-    if (isOpen) {
-      document.body.style.overflow = "hidden";
-    } else {
-      document.body.style.overflow = "";
-    }
-    return () => {
-      document.body.style.overflow = "";
-    };
+    document.body.style.overflow = isOpen ? "hidden" : "";
+    return () => { document.body.style.overflow = ""; };
   }, [isOpen]);
 
   function closeSidebar() {
     setClosing(true);
-    setTimeout(() => {
-      setIsOpen(false);
-      setClosing(false);
-    }, 300);
+    setTimeout(() => { setIsOpen(false); setClosing(false); }, 300);
   }
 
   return (
     <>
-      {/* Floating pill navbar */}
       <nav
-        className={`fixed top-4 left-1/2 -translate-x-1/2 z-50 transition-all duration-500 ${
-          scrolled ? "top-3" : "top-5"
+        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
+          scrolled
+            ? "py-3 border-b border-cream-400/40 bg-cream-200/90 backdrop-blur-md"
+            : "py-5 bg-transparent"
         }`}
       >
-        <div
-          className={`flex items-center gap-2 px-3 py-2 rounded-full transition-all duration-500 ${
-            scrolled
-              ? "bg-white/80 backdrop-blur-xl shadow-lg shadow-purple-950/5 border border-purple-100/50"
-              : "bg-white/60 backdrop-blur-md border border-purple-200/30"
-          }`}
-        >
-          {/* Logo */}
+        <div className="max-w-6xl mx-auto px-6 flex items-center justify-between">
+          {/* Wordmark */}
           <Link
             href="/"
-            className="px-4 py-2 font-[family-name:var(--font-display)] text-base font-bold text-purple-950 tracking-tight whitespace-nowrap"
+            className="font-display text-lg tracking-tight text-ink leading-none"
           >
             Hannah Joy
           </Link>
 
-          {/* Desktop links as pills */}
-          <div className="hidden lg:flex items-center gap-1">
-            {navLinks.map((link) => {
+          {/* Desktop nav */}
+          <div className="hidden md:flex items-center gap-8">
+            {navLinks.slice(1).map((link) => {
               const isActive = pathname === link.href;
               return (
                 <Link
                   key={link.href}
                   href={link.href}
-                  className={`px-4 py-2 rounded-full text-sm font-medium transition-all duration-300 whitespace-nowrap ${
+                  className={`text-sm tracking-wide transition-all duration-200 ${
                     isActive
-                      ? "bg-purple-950 text-white"
-                      : "text-purple-700 hover:bg-purple-50 hover:text-purple-950"
+                      ? "text-ink border-b border-ink pb-px"
+                      : "text-ink-muted hover:text-ink"
                   }`}
                 >
                   {link.label}
@@ -90,150 +75,92 @@ export default function Navbar() {
           {/* Mobile menu button */}
           <button
             onClick={() => (isOpen ? closeSidebar() : setIsOpen(true))}
-            className="lg:hidden relative w-10 h-10 rounded-full bg-purple-950 flex items-center justify-center group"
+            className="md:hidden flex flex-col gap-[5px] items-end py-1 pl-2"
             aria-label="Toggle menu"
           >
-            <div className="flex flex-col items-center justify-center gap-[5px]">
-              <span
-                className={`block w-4 h-[1.5px] bg-white rounded-full transition-all duration-300 ${
-                  isOpen
-                    ? "rotate-45 translate-y-[3.25px]"
-                    : "group-hover:w-5"
-                }`}
-              />
-              <span
-                className={`block w-4 h-[1.5px] bg-white rounded-full transition-all duration-300 ${
-                  isOpen
-                    ? "-rotate-45 -translate-y-[3.25px]"
-                    : "group-hover:w-3"
-                }`}
-              />
-            </div>
+            <span
+              className={`block h-px bg-ink transition-all duration-300 ${
+                isOpen ? "w-5 rotate-45 translate-y-[6px]" : "w-5"
+              }`}
+            />
+            <span
+              className={`block h-px bg-ink transition-all duration-300 ${
+                isOpen ? "w-5 -rotate-45 -translate-y-[6px]" : "w-3"
+              }`}
+            />
           </button>
         </div>
       </nav>
 
-      {/* Mobile sidebar overlay */}
+      {/* Mobile menu overlay */}
       {isOpen && (
-        <div className="fixed inset-0 z-[60] lg:hidden">
+        <div className="fixed inset-0 z-[60] md:hidden">
           {/* Backdrop */}
           <div
-            className={`absolute inset-0 bg-purple-950/30 backdrop-blur-sm ${
+            className={`absolute inset-0 bg-ink/20 ${
               closing ? "animate-fade-out" : "animate-fade-in"
             }`}
             onClick={closeSidebar}
           />
 
-          {/* Sidebar */}
+          {/* Drawer */}
           <div
-            className={`absolute top-0 right-0 w-[85%] max-w-sm h-full bg-white/95 backdrop-blur-xl shadow-2xl ${
+            className={`absolute top-0 right-0 w-72 h-full bg-cream-100 ${
               closing ? "animate-slide-out" : "animate-slide-in"
             }`}
           >
-            {/* Decorative top gradient */}
-            <div className="h-1 w-full bg-gradient-to-r from-purple-300 via-purple-500 to-purple-300" />
+            {/* Top accent */}
+            <div className="h-px w-full bg-cream-400" />
 
-            {/* Close button */}
-            <div className="flex justify-end p-6">
-              <button
-                onClick={closeSidebar}
-                className="w-10 h-10 rounded-full border border-purple-200 flex items-center justify-center text-purple-600 hover:bg-purple-50 transition-colors"
-                aria-label="Close menu"
-              >
-                <svg
-                  className="w-4 h-4"
-                  fill="none"
-                  stroke="currentColor"
-                  viewBox="0 0 24 24"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth={2}
-                    d="M6 18L18 6M6 6l12 12"
-                  />
-                </svg>
-              </button>
-            </div>
-
-            {/* Brand */}
-            <div className="px-8 mb-8">
-              <h2 className="font-[family-name:var(--font-display)] text-2xl font-bold text-purple-950">
-                Hannah Joy
-              </h2>
-              <p className="text-sm text-purple-500 mt-1">
-                UGC Creator & Makeup Artist
+            <div className="p-8 pt-10">
+              {/* Brand */}
+              <p className="font-display text-2xl text-ink mb-1">Hannah Joy</p>
+              <p className="text-xs text-ink-muted tracking-widest uppercase mb-10">
+                @paintedbyhannahjoy
               </p>
-              {/* Decorative swatch dots */}
-              <div className="flex gap-2 mt-4">
-                <span className="swatch-dot bg-purple-300" />
-                <span className="swatch-dot bg-purple-500" />
-                <span className="swatch-dot bg-purple-700" />
-                <span className="swatch-dot bg-purple-950" />
-              </div>
-            </div>
 
-            {/* Nav links */}
-            <div className="px-8 space-y-1">
-              {navLinks.map((link, i) => {
-                const isActive = pathname === link.href;
-                return (
-                  <Link
-                    key={link.href}
-                    href={link.href}
-                    onClick={closeSidebar}
-                    className={`flex items-center gap-4 px-4 py-4 rounded-2xl text-lg transition-all duration-200 animate-fade-up ${
-                      isActive
-                        ? "bg-purple-950 text-white font-medium"
-                        : "text-purple-800 hover:bg-purple-50 font-normal"
-                    }`}
-                    style={{ animationDelay: `${i * 60}ms` }}
-                  >
-                    <span
-                      className={`w-2 h-2 rounded-full ${
-                        isActive ? "bg-white" : "bg-purple-300"
+              {/* Links */}
+              <nav className="space-y-1">
+                {navLinks.map((link, i) => {
+                  const isActive = pathname === link.href;
+                  return (
+                    <Link
+                      key={link.href}
+                      href={link.href}
+                      onClick={closeSidebar}
+                      className={`flex items-center gap-3 py-3 text-base border-b border-cream-300 transition-colors animate-fade-up ${
+                        isActive
+                          ? "text-ink"
+                          : "text-ink-muted hover:text-ink"
                       }`}
-                    />
-                    {link.label}
-                  </Link>
-                );
-              })}
-            </div>
-
-            {/* Bottom artistic element */}
-            <div className="absolute bottom-0 left-0 right-0 p-8">
-              <div className="border-t border-purple-100 pt-6">
-                <div className="flex gap-6">
-                  {[
-                    {
-                      label: "TikTok",
-                      href: "https://tiktok.com/@paintedbyhannahjoy",
-                    },
-                    {
-                      label: "Instagram",
-                      href: "https://instagram.com/paintedbyhannahjoy",
-                    },
-                    {
-                      label: "YouTube",
-                      href: "https://youtube.com/@paintedbyhannahjoy",
-                    },
-                  ].map((s) => (
-                    <a
-                      key={s.label}
-                      href={s.href}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="text-xs text-purple-500 hover:text-purple-950 transition-colors uppercase tracking-widest"
+                      style={{ animationDelay: `${i * 50}ms` }}
                     >
-                      {s.label}
-                    </a>
-                  ))}
-                </div>
-              </div>
+                      {isActive && (
+                        <span className="w-1 h-1 rounded-full bg-mauve flex-shrink-0" />
+                      )}
+                      {link.label}
+                    </Link>
+                  );
+                })}
+              </nav>
 
-              {/* Abstract paint splatter decoration */}
-              <div className="absolute bottom-32 -left-8 w-32 h-32 rounded-full bg-purple-100/40 blur-2xl" />
-              <div className="absolute bottom-20 right-4 w-20 h-20 rounded-full bg-purple-200/30 blur-xl" />
+              {/* Social */}
+              <div className="mt-10 flex gap-6">
+                {[
+                  { label: "TikTok", href: "https://tiktok.com/@paintedbyhannahjoy" },
+                  { label: "IG", href: "https://instagram.com/paintedbyhannahjoy" },
+                ].map((s) => (
+                  <a
+                    key={s.label}
+                    href={s.href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-xs text-ink-muted hover:text-ink tracking-widest uppercase transition-colors"
+                  >
+                    {s.label}
+                  </a>
+                ))}
+              </div>
             </div>
           </div>
         </div>
