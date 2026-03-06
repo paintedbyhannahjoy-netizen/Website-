@@ -129,6 +129,110 @@ export default function Home() {
         </div>
       </section>
 
+      {/* ── Featured Work ── */}
+      <section className="bg-ink section">
+        <div className="max-w-6xl mx-auto px-6">
+          <div className="flex items-baseline justify-between mb-12">
+            <div>
+              <p className="text-xs text-cream-500 tracking-widest uppercase mb-3">Featured</p>
+              <h2 className="font-display italic text-3xl md:text-4xl text-cream-100">
+                The ones people keep watching.
+              </h2>
+            </div>
+            <Link
+              href="/work"
+              className="hidden md:block text-sm text-cream-500 border-b border-cream-700 pb-px hover:text-cream-200 hover:border-cream-500 transition-colors flex-shrink-0 ml-8"
+            >
+              All work →
+            </Link>
+          </div>
+
+          {/* 3-up grid: 1 tall + 2 stacked */}
+          <div className="grid grid-cols-1 md:grid-cols-12 gap-4">
+            {/* Hero card — Junji Ito Yuuko (7.1M total) */}
+            <a
+              href="https://www.tiktok.com/t/ZP8Ck4gjA/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="md:col-span-7 bg-cream-200/5 border border-cream-700/40 p-8 flex flex-col justify-between min-h-64 hover:bg-cream-200/10 transition-colors group"
+            >
+              <div>
+                <p className="text-xs text-cream-600 tracking-widest uppercase mb-4">
+                  Character Work
+                </p>
+                <p className="font-display italic text-3xl md:text-4xl text-cream-100 leading-snug">
+                  Junji Ito — Yuuko
+                </p>
+              </div>
+              <div className="mt-8">
+                <p className="font-display text-5xl md:text-6xl text-cream-100 leading-none mb-3">
+                  7.1M
+                </p>
+                <div className="flex gap-5 text-xs text-cream-600 mb-4">
+                  <span>TikTok 501.5K</span>
+                  <span>·</span>
+                  <span>Instagram 486K</span>
+                  <span>·</span>
+                  <span>YouTube 6.1M</span>
+                </div>
+                <span className="text-xs text-cream-500 group-hover:text-cream-200 transition-colors">
+                  Watch on TikTok ↗
+                </span>
+              </div>
+            </a>
+
+            {/* Right column — 2 stacked cards */}
+            <div className="md:col-span-5 flex flex-col gap-4">
+              {/* Hot Glue Jujutsu Kaisen (5.7M total) */}
+              <a
+                href="https://www.tiktok.com/t/ZP8ChoCtF/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="bg-cream-200/5 border border-cream-700/40 p-6 flex flex-col justify-between hover:bg-cream-200/10 transition-colors group flex-1"
+              >
+                <p className="text-xs text-cream-600 tracking-widest uppercase mb-2">Studio</p>
+                <p className="font-display italic text-xl text-cream-100 leading-snug">
+                  Hot Glue — Jujutsu Kaisen
+                </p>
+                <div className="mt-4">
+                  <p className="font-display text-3xl text-cream-100 leading-none mb-2">5.7M</p>
+                  <p className="text-xs text-cream-600">TikTok 2.6M · Instagram 3.1M</p>
+                  <span className="text-xs text-cream-500 group-hover:text-cream-200 transition-colors mt-2 block">
+                    Watch ↗
+                  </span>
+                </div>
+              </a>
+
+              {/* Ballora (2.2M TikTok) */}
+              <a
+                href="https://www.tiktok.com/t/ZP8CkmRrv/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="bg-cream-200/5 border border-cream-700/40 p-6 flex flex-col justify-between hover:bg-cream-200/10 transition-colors group flex-1"
+              >
+                <p className="text-xs text-cream-600 tracking-widest uppercase mb-2">Five Nights at Freddy&apos;s</p>
+                <p className="font-display italic text-xl text-cream-100 leading-snug">
+                  Ballora
+                </p>
+                <div className="mt-4">
+                  <p className="font-display text-3xl text-cream-100 leading-none mb-2">2.2M</p>
+                  <p className="text-xs text-cream-600">TikTok 2.2M</p>
+                  <span className="text-xs text-cream-500 group-hover:text-cream-200 transition-colors mt-2 block">
+                    Watch ↗
+                  </span>
+                </div>
+              </a>
+            </div>
+          </div>
+
+          <div className="mt-8 md:hidden">
+            <Link href="/work" className="text-sm text-cream-500 border-b border-cream-700 pb-px hover:text-cream-200 transition-colors">
+              All work →
+            </Link>
+          </div>
+        </div>
+      </section>
+
       {/* ── About strip ── */}
       <section className="bg-cream-200 section border-t border-cream-400/40">
         <div className="max-w-6xl mx-auto px-6">
