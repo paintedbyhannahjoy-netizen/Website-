@@ -1,5 +1,4 @@
 import type { Metadata } from "next";
-import Link from "next/link";
 
 export const metadata: Metadata = {
   title: "Work With Me | Hannah Joy",
@@ -7,56 +6,114 @@ export const metadata: Metadata = {
     "Brand collaboration hub for @paintedbyhannahjoy. Campaign packages, single posts, and co-created content series.",
 };
 
-const brandWork = [
-  {
-    brand: "Urban Decay",
-    type: "Posted content",
-    deliverable: "TikTok video + Instagram Reel",
-    year: "2025",
-    note: "Full campaign",
-  },
+type BrandEntry = {
+  brand: string;
+  subtitle?: string;
+  type: "paid" | "music" | "pr";
+  deliverable: string;
+  url?: string;
+  url2?: string;
+  year: string;
+};
+
+const beautyBrands: BrandEntry[] = [
   {
     brand: "Farmacy",
-    type: "Posted content",
-    deliverable: "TikTok video",
+    type: "paid",
+    deliverable: "Instagram Reel — paid campaign",
+    url: "https://www.instagram.com/reel/DQesOnbDYq7/",
     year: "2025",
-    note: "Full campaign",
   },
   {
-    brand: "Doja Cat",
-    type: "Posted content",
-    deliverable: "Content credit",
+    brand: "Salon Perfect",
+    type: "paid",
+    deliverable: "Instagram Reel — paid campaign",
+    url: "https://www.instagram.com/reel/DP9hj8sAL41/",
     year: "2025",
-    note: "Creative collaboration",
   },
   {
-    brand: "Mads",
-    type: "Posted content",
-    deliverable: "Content credit",
+    brand: "YouCam Makeup App",
+    type: "paid",
+    deliverable: "Instagram Reel — paid campaign",
+    url: "https://www.instagram.com/reel/DT-uUxBAGrT/",
     year: "2025",
-    note: "Creative collaboration",
   },
   {
-    brand: "Buckley",
-    type: "Posted content",
-    deliverable: "Content credit",
+    brand: "DDG Beauty",
+    type: "paid",
+    deliverable: "Instagram Reel — paid campaign",
+    url: "https://www.instagram.com/reel/DVJtZcNEgWB/",
     year: "2025",
-    note: "Creative collaboration",
   },
   {
-    brand: "Nina Simone",
-    type: "Posted content",
-    deliverable: "Content credit",
+    brand: "Urban Decay",
+    type: "pr",
+    deliverable: "TikTok — PR",
+    url: "https://www.tiktok.com/t/ZP8C6KVV4/",
     year: "2025",
-    note: "Creative collaboration",
+  },
+  {
+    brand: "Half Magic",
+    type: "pr",
+    deliverable: "TikTok — PR (ongoing list)",
+    url: "https://www.tiktok.com/t/ZP8C6bLUR/",
+    year: "2025",
   },
   {
     brand: "Byredo",
-    type: "PR seeding",
+    type: "pr",
     deliverable: "Product gifted",
     year: "2025",
-    note: "Not a paid campaign",
   },
+];
+
+const musicBrands: BrandEntry[] = [
+  {
+    brand: "Doja Cat",
+    subtitle: "AAAAHH MEN!",
+    type: "music",
+    deliverable: "TikTok — paid campaign",
+    url: "https://www.tiktok.com/t/ZP8CMPa1t/",
+    year: "2025",
+  },
+  {
+    brand: "Nina Simone",
+    subtitle: "I Put a Spell on You",
+    type: "music",
+    deliverable: "TikTok — paid campaign (2 videos)",
+    url: "https://www.tiktok.com/t/ZP8CMAdbw/",
+    url2: "https://www.tiktok.com/t/ZP8CMeodu/",
+    year: "2025",
+  },
+  {
+    brand: "Madds Buckley",
+    subtitle: "The Red Means I Love You",
+    type: "music",
+    deliverable: "TikTok — paid campaign",
+    url: "https://www.tiktok.com/t/ZP8CMNADP/",
+    year: "2025",
+  },
+  {
+    brand: "Paddington the Musical",
+    type: "music",
+    deliverable: "TikTok — paid campaign",
+    url: "https://www.tiktok.com/t/ZP8CMecvH/",
+    year: "2025",
+  },
+];
+
+const allBrandNames = [
+  "Farmacy",
+  "Salon Perfect",
+  "YouCam Makeup",
+  "DDG Beauty",
+  "Urban Decay",
+  "Half Magic",
+  "Byredo",
+  "Doja Cat",
+  "Nina Simone",
+  "Madds Buckley",
+  "Paddington",
 ];
 
 const tiers = [
@@ -101,7 +158,60 @@ const tiers = [
   },
 ];
 
+function BrandRow({ brand, subtitle, type, deliverable, url, url2, year }: BrandEntry) {
+  const badge =
+    type === "pr"
+      ? { label: "PR / Gifted", style: "bg-cream-300 text-ink-muted" }
+      : type === "music"
+      ? { label: "Music", style: "bg-gold-light text-ink-soft" }
+      : { label: "Paid", style: "bg-mauve-light text-mauve-dark" };
+
+  return (
+    <div className="py-5 grid grid-cols-12 gap-4 items-start border-b border-cream-400/40 last:border-0">
+      <div className="col-span-4">
+        <p className="font-display text-base text-ink leading-snug">{brand}</p>
+        {subtitle && (
+          <p className="text-xs text-ink-muted italic mt-0.5">&ldquo;{subtitle}&rdquo;</p>
+        )}
+        <p className="text-xs text-ink-muted mt-0.5">{year}</p>
+      </div>
+      <div className="col-span-5">
+        <p className="text-sm text-ink-soft">{deliverable}</p>
+        <div className="flex gap-3 mt-1">
+          {url && (
+            <a
+              href={url}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-xs text-ink-muted border-b border-ink-muted/30 pb-px hover:text-ink hover:border-ink transition-colors"
+            >
+              View ↗
+            </a>
+          )}
+          {url2 && (
+            <a
+              href={url2}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-xs text-ink-muted border-b border-ink-muted/30 pb-px hover:text-ink hover:border-ink transition-colors"
+            >
+              View 2 ↗
+            </a>
+          )}
+        </div>
+      </div>
+      <div className="col-span-3 text-right">
+        <span className={`text-xs tracking-wide uppercase px-2 py-1 ${badge.style}`}>
+          {badge.label}
+        </span>
+      </div>
+    </div>
+  );
+}
+
 export default function WorkWithMePage() {
+  const marqueeList = [...allBrandNames, ...allBrandNames];
+
   return (
     <>
       {/* ── Header ── */}
@@ -118,8 +228,8 @@ export default function WorkWithMePage() {
             Work With Me
           </h1>
           <p className="text-ink-soft max-w-md text-base leading-relaxed animate-fade-up animation-delay-200">
-            70M+ views, 26K Instagram, daily posting. The content quality is what drives
-            the numbers — not the other way around.
+            70M+ views, 26K Instagram, daily posting. The content quality is
+            what drives the numbers — not the other way around.
           </p>
         </div>
       </section>
@@ -135,12 +245,7 @@ export default function WorkWithMePage() {
           style={{ background: "linear-gradient(-90deg, #E8DFD0, transparent)" }}
         />
         <div className="flex gap-8 animate-marquee">
-          {[
-            "Urban Decay", "Farmacy", "Byredo", "Doja Cat",
-            "Mads", "Buckley", "Nina Simone",
-            "Urban Decay", "Farmacy", "Byredo", "Doja Cat",
-            "Mads", "Buckley", "Nina Simone",
-          ].map((brand, i) => (
+          {marqueeList.map((brand, i) => (
             <span key={i} className="brand-pill flex-shrink-0">
               {brand}
             </span>
@@ -159,38 +264,34 @@ export default function WorkWithMePage() {
                 <em>actually built together.</em>
               </h2>
               <p className="text-sm text-ink-muted mt-4 leading-relaxed">
-                No filler brands, no mystery credits. This is exactly what each collaboration was.
+                No filler brands, no mystery credits. This is exactly what each
+                collaboration was — and whether it was paid or gifted.
               </p>
             </div>
 
             <div className="md:col-span-7 md:col-start-6">
-              <div className="divide-y divide-cream-400/40">
-                {brandWork.map(({ brand, type, deliverable, year, note }) => (
-                  <div key={brand} className="py-5 grid grid-cols-12 gap-4 items-start">
-                    <div className="col-span-4">
-                      <p className="font-display text-base text-ink">{brand}</p>
-                      <p className="text-xs text-ink-muted mt-0.5">{year}</p>
-                    </div>
-                    <div className="col-span-5">
-                      <p className="text-sm text-ink-soft">{deliverable}</p>
-                    </div>
-                    <div className="col-span-3 text-right">
-                      <span
-                        className={`text-xs tracking-wide uppercase px-2 py-1 ${
-                          type === "PR seeding"
-                            ? "bg-cream-300 text-ink-muted"
-                            : "bg-mauve-light text-mauve-dark"
-                        }`}
-                      >
-                        {type === "PR seeding" ? "PR" : "Campaign"}
-                      </span>
-                    </div>
-                  </div>
+              {/* Beauty / Product */}
+              <p className="text-xs text-ink-muted tracking-widest uppercase mb-4">
+                Beauty &amp; Product
+              </p>
+              <div className="mb-10">
+                {beautyBrands.map((entry) => (
+                  <BrandRow key={entry.brand} {...entry} />
                 ))}
               </div>
 
-              <p className="text-xs text-ink-muted mt-6 italic">
-                Byredo — product was gifted (PR seeding), not a paid collaboration. I&apos;m always transparent about this.
+              {/* Music */}
+              <p className="text-xs text-ink-muted tracking-widest uppercase mb-4">
+                Music Campaigns
+              </p>
+              <div className="mb-6">
+                {musicBrands.map((entry) => (
+                  <BrandRow key={entry.brand} {...entry} />
+                ))}
+              </div>
+
+              <p className="text-xs text-ink-muted italic mt-6">
+                PR / Gifted = product was sent, no payment. I always say so.
               </p>
             </div>
           </div>
@@ -255,8 +356,9 @@ export default function WorkWithMePage() {
           </div>
 
           <p className="text-xs text-ink-muted mt-6 max-w-sm">
-            Pricing is starting-point guidance. Full quote after a conversation about your project goals.
-            Usage rights, exclusivity, and timeline all factor in.
+            Pricing is a starting point. Full quote after a conversation about
+            your project goals — usage rights, exclusivity, and timeline all
+            factor in.
           </p>
         </div>
       </section>
@@ -270,8 +372,9 @@ export default function WorkWithMePage() {
                 Let&apos;s build something worth watching.
               </h2>
               <p className="text-sm text-cream-400 leading-relaxed">
-                Fill out the form below and I&apos;ll get back to you with a full proposal.
-                Alternatively, use the direct line if you already know what you want.
+                Fill out the form and I&apos;ll get back to you with a full
+                proposal. Or use the direct line if you already know what you
+                want.
               </p>
             </div>
 

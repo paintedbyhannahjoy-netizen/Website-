@@ -72,9 +72,9 @@ export default function AboutPage() {
                 </p>
                 <p>
                   Now at 26K on Instagram, 70 million views across platforms, and I still
-                  post every day. I&apos;ve worked with brands I genuinely admire — Urban
-                  Decay, Farmacy, Byredo (PR seeding), Doja Cat&apos;s team, and others.
-                  I care about the work. That hasn&apos;t changed.
+                  post every day. Paid campaigns with Farmacy, Salon Perfect, YouCam Makeup,
+                  DDG Beauty, Doja Cat, Nina Simone, Madds Buckley, and Paddington the Musical.
+                  PR from Urban Decay, Half Magic, Byredo. I always say which is which.
                 </p>
                 <p>
                   I&apos;m not trying to be an influencer. I&apos;m trying to make things

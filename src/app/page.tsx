@@ -174,10 +174,12 @@ export default function Home() {
 
             <div className="flex gap-8 animate-marquee">
               {[
-                "Urban Decay", "Farmacy", "Byredo", "Doja Cat",
-                "Mads", "Buckley", "Nina Simone",
-                "Urban Decay", "Farmacy", "Byredo", "Doja Cat",
-                "Mads", "Buckley", "Nina Simone",
+                "Farmacy", "Salon Perfect", "YouCam Makeup", "DDG Beauty",
+                "Urban Decay", "Half Magic", "Byredo",
+                "Doja Cat", "Nina Simone", "Madds Buckley", "Paddington",
+                "Farmacy", "Salon Perfect", "YouCam Makeup", "DDG Beauty",
+                "Urban Decay", "Half Magic", "Byredo",
+                "Doja Cat", "Nina Simone", "Madds Buckley", "Paddington",
               ].map((brand, i) => (
                 <span key={i} className="brand-pill border-cream-600/40 text-cream-400 flex-shrink-0">
                   {brand}
